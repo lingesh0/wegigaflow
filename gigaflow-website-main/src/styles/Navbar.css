@@ -1,0 +1,239 @@
+:root {
+    --navbar-bg-color: #0E4A56;
+    --navbar-height: 3.5rem;
+    --logo-height-large: 2.7rem;
+    --logo-height-small: 2.5rem;
+    --logo-height-vsmall: 2rem;
+    --menu-gap-large: 3rem;
+    --menu-gap-small: 1.5rem;
+    --quote-btn-bg: #F26419;
+    --quote-btn-bg-dark: #f45d0c;
+    --quote-btn-bg-hover: #b74c00;
+    --quote-btn-width-large: 100px; /* Increased size for better visibility */
+    --quote-btn-width-small: 100px;
+    --quote-btn-widht-vsmall:80px;
+    --quote-btn-height: 40px;
+    --quote-btn-border-radius: 40px;
+    --font-family: 'Poppins', sans-serif;
+    --font-size-normal: 1rem;
+    --font-size-small: 0.9rem;
+    --text-color: #fff;
+    --border-color: #333;
+    --side-gap: 3rem; /* Added side gap */
+}
+
+/* Container for the entire navbar */
+.navbar-unique-container {
+    width: 100%;
+    background: var(--navbar-bg-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    height: var(--navbar-height);
+    z-index: 1200;
+    padding: 0 var(--side-gap); /* Adjusted padding to ensure equal gaps */
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.39);
+    overflow: hidden; /* Prevent content overflow */
+}
+
+/* Flex container for navbar content */
+.navbar-unique {
+    width: 100%;
+    max-width: 1400px; /* Increased max-width for larger screens */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo, menu, and button */
+}
+
+/* Logo container */
+.navbar-logo-container {
+    display: flex;
+    align-items: center;
+    margin-inline-start: var(--side-gap); /* Added margin to create gap before logo */
+}
+
+/* Logo styling */
+.navbar-logo {
+    height: var(--logo-height-large);
+    transition: height 0.3s ease;
+    cursor: pointer;
+}
+
+/* Menu container */
+.navbar-menu-container {
+    flex: 1; /* Allows the menu to grow and occupy space */
+    display: flex;
+    justify-content: center; /* Centers the menu in its container */
+}
+
+/* Unordered list for navbar links */
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--menu-gap-large);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Individual navbar link styling */
+.navbar-menu li a {
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-weight: 400;
+    text-decoration: none;
+    font-size: var(--font-size-normal);
+    letter-spacing: 0.5px;
+    background: linear-gradient(-45deg, #1beccd 40%, #0d685b 0 60%, #012f28 0) right/300% 100% no-repeat, linear-gradient(-45deg, #0000 40%, #15a48f 0 60%, #0000 0) right/300% 100% no-repeat;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    transition: background-position 0.5s ease;
+}
+
+/* Hover effect for navbar links */
+.navbar-menu li a:hover {
+    background-position: left;
+}
+
+/* Styling for the "Get Quote" button */
+.navbar-quote-btn {
+    background-color: var(--quote-btn-bg-dark);
+    color: var(--text-color);
+    border-radius: var(--quote-btn-border-radius);
+    font-size: var(--font-size-normal);
+    width: var(--quote-btn-width-large);
+    height: var(--quote-btn-height);
+    border: none;
+    font-family: var(--font-family);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: auto; /* Align button to the right end */
+    box-shadow: 0 0 10px var(--quote-btn-bg);
+}
+
+/* Hover effect for the "Get Quote" button */
+.navbar-quote-btn:hover {
+    background: transparent;
+    border-radius: var(--quote-btn-border-radius);
+    border: 2px solid var(--quote-btn-bg);
+    box-shadow: none;
+    
+}
+
+/* Hamburger icon */
+.navbar-hamburger {
+    display: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1.5rem; /* Adjust size as needed */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for animations */
+}
+
+/* Hamburger lines */
+.navbar-hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+    transition: transform 0.3s ease; /* Smooth transition for lines */
+}
+
+/* Active state for hamburger icon */
+.navbar-hamburger.active {
+    color: var(--quote-btn-bg); /* Change color when active */
+}
+
+.navbar-hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px); /* Animate the first line */
+}
+
+.navbar-hamburger.active div:nth-child(2) {
+    opacity: 0; /* Hide the middle line */
+}
+
+.navbar-hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px); /* Animate the third line */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+    .navbar-unique-container {
+        padding: 0 var(--side-gap); /* Ensure equal side gaps */
+    }
+
+    .navbar-unique {
+        max-width: 1400px; /* Set max-width for large screens */
+    }
+
+    .navbar-quote-btn {
+        width: var(--quote-btn-width-large);
+        margin-inline-end: 9rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .navbar-menu {
+        gap: var(--menu-gap-small);
+    }
+
+    .navbar-logo {
+        height: var(--logo-height-vsmall);
+    }
+
+    .navbar-quote-btn {
+        width: var(--quote-btn-width-small);
+        font-size: var(--font-size-small);
+        margin-inline-end: 9rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-unique-container {
+        padding: 0 1rem; /* Reduce padding for small screens */
+    }
+
+    .navbar-logo {
+        margin-top: 1rem; /* Space above logo on small screens */
+        margin-inline-start: -2rem;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        position: fixed; /* Fixed position for full viewport coverage */
+        top: var(--navbar-height);
+        right: 0;
+        background: var(--navbar-bg-color);
+        width: 100%;
+        height: calc(100vh - var(--navbar-height));
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        opacity: 0;
+        visibility: hidden; /* Hide menu when not active */
+    }
+
+    .navbar-menu.active {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible; /* Show menu when active */
+    }
+
+    .navbar-logo-container {
+        margin-bottom: 1rem; /* Space between logo and menu on small screens */
+    }
+
+    .navbar-quote-btn {
+        display: none;
+    }
+
+    .navbar-hamburger {
+        display: block;
+        margin-inline-end: 3rem; /* Adjust margin to fit within the navbar */
+    }
+}
